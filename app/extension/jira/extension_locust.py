@@ -9,7 +9,7 @@ logger = init_logger(app_type='jira')
 def app_specific_action(locust):
     r = locust.get('/plugins/servlet/tenable/admin', catch_response=True)  # call app-specific GET endpoint
     content = r.content.decode('utf-8')   # decode response content
-
+    print("content" + content)
 #     token_pattern_example = '"token":"(.+?)"'
 #     id_pattern_example = '"id":"(.+?)"'
 #     token = re.findall(token_pattern_example, content)  # get TOKEN from response using regexp
