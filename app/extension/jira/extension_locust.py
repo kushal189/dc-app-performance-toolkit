@@ -7,12 +7,7 @@ logger = init_logger(app_type='jira')
 @jira_measure("locust_app_specific_action")
 @run_as_specific_user(username='admin', password='admin')  # run as specific user
 def app_specific_action(locust):
-    headers = {
-     "accept": "application/json, text/javascript, */*; q=0.01",
-     "accept-language": "en-US,en;q=0.9",
-     "x-requested-with": "XMLHttpRequest"
-    }
-    r = locust.get('/rest/tenable/1.0', headers, catch_response=True)  # call app-specific GET endpoint
+    r = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
     content = r.content.decode('utf-8')   # decode response content
     logger.error("content" + content)
     logger.info("content" + content)
