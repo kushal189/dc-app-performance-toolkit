@@ -7,9 +7,10 @@ logger = init_logger(app_type='jira')
 @jira_measure("locust_app_specific_action")
 @run_as_specific_user(username='admin', password='admin')  # run as specific user
 def app_specific_action(locust):
-    r = locust.get('/plugins/servlet/tenable/admin', catch_response=True)  # call app-specific GET endpoint
+    r = locust.get('/rest/tenable/1.0', catch_response=True)  # call app-specific GET endpoint
     content = r.content.decode('utf-8')   # decode response content
-    print("content" + content)
+    logger.error("content" + content)
+    logger.info("content" + content)
 #     token_pattern_example = '"token":"(.+?)"'
 #     id_pattern_example = '"id":"(.+?)"'
 #     token = re.findall(token_pattern_example, content)  # get TOKEN from response using regexp
