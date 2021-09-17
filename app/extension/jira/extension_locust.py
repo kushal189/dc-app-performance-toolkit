@@ -1,5 +1,6 @@
 import re
 from locustio.common_utils import init_logger, jira_measure, run_as_specific_user  # noqa F401
+import logging
 
 logger = init_logger(app_type='jira')
 
@@ -9,8 +10,8 @@ logger = init_logger(app_type='jira')
 def app_specific_action(locust):
     r = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
     content = r.content.decode('utf-8')   # decode response content
-    logger.error("content" + content)
-    logger.info("content" + content)
+    logging.error("content" + content)
+    logging.info("content" + content)
 #     token_pattern_example = '"token":"(.+?)"'
 #     id_pattern_example = '"id":"(.+?)"'
 #     token = re.findall(token_pattern_example, content)  # get TOKEN from response using regexp
