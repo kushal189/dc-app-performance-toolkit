@@ -15,8 +15,7 @@ def app_specific_action(locust):
     logger.locust_info("content get" + content)
     logger.error("content get" + content)
     
-    body = {
-            accessKey: "f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1",
+    body = {accessKey: "f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1",
             address: "cloud.tenable.com",
             assignee: "unassigned",
             buttonClicked: "save",
