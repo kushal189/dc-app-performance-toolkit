@@ -34,7 +34,7 @@ def app_specific_action(locust):
             "syncSince": "08/18/2021 15:01",
             "verifySSL": "undefined"
            }
-    r_put = locust.put('/rest/tenable/1.0', body, catch_response=True)
+    r_put = locust.post('/rest/tenable/1.0', body, catch_response=True)
     content_put = r_put.content.decode('utf-8')
     logging.error("content put" + content_put)
     logging.info("content put" + content_put)
