@@ -8,12 +8,12 @@ logger = init_logger(app_type='jira')
 @jira_measure("locust_app_specific_action")
 @run_as_specific_user(username='admin', password='admin')  # run as specific user
 def app_specific_action(locust):
-    r = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
-    content = r.content.decode('utf-8')   # decode response content
-    logging.error("content get" + content)
-    logging.info("content get" + content)
-    logger.locust_info("content get" + content)
-    logger.error("content get" + content)
+#     r = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
+#     content = r.content.decode('utf-8')   # decode response content
+#     logging.error("content get" + content)
+#     logging.info("content get" + content)
+#     logger.locust_info("content get" + content)
+#     logger.error("content get" + content)
     
     body = {"accessKey": "f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1",
             "address": "cloud.tenable.com",
@@ -34,7 +34,7 @@ def app_specific_action(locust):
             "syncSince": "08/18/2021 15:01",
             "verifySSL": "undefined"
            }
-    r_put = locust.post('/rest/tenable/1.0', body, catch_response=True)
+    r_put = locust.put('/rest/tenable/1.0', body, catch_response=True)
     content_put = r_put.content.decode('utf-8')
     logging.error("content put" + content_put)
     logging.info("content put" + content_put)
