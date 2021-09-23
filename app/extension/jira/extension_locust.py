@@ -35,7 +35,8 @@ def app_specific_action(locust):
             "verifySSL": "undefined"
            }
     r_put = locust.client.put('/rest/tenable/1.0', body, catch_response=True)
-    content_put = r_put.content.decode('utf-8')
+    #content_put = r_put.content.decode('utf-8')
+    content_put = r_put
     logging.error("content put" + content_put)
     logging.info("content put" + content_put)
     logger.locust_info("content put" + content_put)
