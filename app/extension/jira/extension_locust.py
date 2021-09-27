@@ -12,13 +12,13 @@ def app_specific_action(locust):
      r_get_io = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
      content_get_io = r_get_io.content.decode('utf-8')   # decode response content
      if 'io' not in content_get_io:
-         logger.error(f"'assertion string' was not found in {content_get_io}")
+         logger.error(f"'io' was not found in {content_get_io}")
      assert 'io' in content_get_io  # assert specific string in response content
      
      r_get_sc = locust.get('/rest/tenable/1.0/?product=sc', catch_response=True)
      content_get_sc = r_get_sc.content.decode('utf-8')
      if 'sc' not in content_get_sc:
-         logger.error(f"'assertion string' was not found in {content_get_sc}")
+         logger.error(f"'sc' was not found in {content_get_sc}")
      assert 'sc' in content_get_sc
      
 #      logging.error("content get" + content)
