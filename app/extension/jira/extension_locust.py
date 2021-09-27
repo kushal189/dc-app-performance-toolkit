@@ -8,11 +8,19 @@ logger = init_logger(app_type='jira')
 @jira_measure("locust_app_specific_action")
 @run_as_specific_user(username='admin', password='admin')  # run as specific user
 def app_specific_action(locust):
-     r = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
-     content = r.content.decode('utf-8')   # decode response content
-     if 'io' not in content:
-         logger.error(f"'assertion string' was not found in {content}")
-     assert 'io' in content  # assert specific string in response content
+     
+     r_get_io = locust.get('/rest/tenable/1.0/?product=io', catch_response=True)  # call app-specific GET endpoint
+     content_get_io = r_get_io.content.decode('utf-8')   # decode response content
+     if 'io' not in content_get_io:
+         logger.error(f"'assertion string' was not found in {content_get_io}")
+     assert 'io' in content_get_io  # assert specific string in response content
+     
+     r_get_sc = locust.get('/rest/tenable/1.0/?product=sc', catch_response=True)
+     content_get_sc = r_get_sc.content.decode('utf-8')
+     if 'sc' not in content_get_sc:
+         logger.error(f"'assertion string' was not found in {content_get_sc}")
+     assert 'sc' in content_get_sc
+     
 #      logging.error("content get" + content)
 #      logging.info("content get" + content)
 #      logger.locust_info("content get" + content)
