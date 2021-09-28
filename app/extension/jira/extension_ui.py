@@ -40,7 +40,8 @@ def app_specific_action(webdriver, datasets):
             #page.wait_until_visible((By.ID, "summary-val"))  # Wait for summary field visible
             #page.wait_until_visible((By.ID, "ID_OF_YOUR_APP_SPECIFIC_UI_ELEMENT"))  # Wait for you app-specific UI element by ID selector
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/tenable/admin")
-            print("selector_locator" + page.get_element('#txt_access_key'))
+            webdriver.find_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
+            print("selector_locator")
             #page.get_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
             #page.get_element_by_css_selector('')
         sub_measure()
