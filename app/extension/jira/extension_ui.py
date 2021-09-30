@@ -6,7 +6,8 @@ from selenium_ui.base_page import BasePage
 from selenium_ui.conftest import print_timing
 from selenium_ui.jira.pages.pages import Login, Logout
 from util.conf import JIRA_SETTINGS
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 def app_specific_action(webdriver, datasets):
      page = BasePage(webdriver)
@@ -41,11 +42,9 @@ def app_specific_action(webdriver, datasets):
             #page.wait_until_visible((By.ID, "ID_OF_YOUR_APP_SPECIFIC_UI_ELEMENT"))  # Wait for you app-specific UI element by ID selector
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/tenable/admin")
             webdriver.find_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
-            print("selector_locator")
-            logout_page = Logout(webdriver)
-            logout_page.go_to()
-            logout_page.click_logout()
-            logout_page.wait_for_page_loaded()
+            webdriver.find_element_by_css_selector('#txt_secret_key').send_keys('e3d8c091e4cc4d75044e07338d530cd3e32e2ed18121d8df4052b0a4ecd793cb')
+            WebDriverWait(webdriverdriver, 10).until(EC.element_to_be_clickable(By.XPATH,"//input[@id='tenable_admin_submit']"))
+            #print("selector_locator")
             #page.get_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
             #page.get_element_by_css_selector('')
         sub_measure()
