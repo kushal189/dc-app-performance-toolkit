@@ -42,17 +42,21 @@ def app_specific_action(webdriver, datasets):
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/tenable/admin")
             webdriver.find_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
             print("selector_locator")
+            logout_page = Logout(webdriver)
+            logout_page.go_to()
+            logout_page.click_logout()
+            logout_page.wait_for_page_loaded()
             #page.get_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
             #page.get_element_by_css_selector('')
         sub_measure()
      measure()
      
-     @print_timing("selenium_app_specific_user_log_out")
-     def measure(): 
-        def sub_measure():
-             logout_page = Logout(webdriver)
-             logout_page.go_to()
-             logout_page.click_logout()
-             logout_page.wait_for_page_loaded()
-        sub_measure()
-     measure()
+#      @print_timing("selenium_app_specific_user_log_out")
+#      def measure(): 
+#         def sub_measure():
+#              logout_page = Logout(webdriver)
+#              logout_page.go_to()
+#              logout_page.click_logout()
+#              logout_page.wait_for_page_loaded()
+#         sub_measure()
+#      measure()
