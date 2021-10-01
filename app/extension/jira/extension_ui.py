@@ -43,7 +43,7 @@ def app_specific_action(webdriver, datasets):
             page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/tenable/admin")
             webdriver.find_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
             webdriver.find_element_by_css_selector('#txt_secret_key').send_keys('e3d8c091e4cc4d75044e07338d530cd3e32e2ed18121d8df4052b0a4ecd793cb')
-            WebDriverWait(webdriverdriver, 10).until(EC.element_to_be_clickable(By.XPATH,"//input[@id='tenable_admin_submit']"))
+            WebDriverWait(webdriver, 10).until(EC.element_to_be_clickable(By.XPATH,"//input[@id='tenable_admin_submit']"))
             #print("selector_locator")
             #page.get_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
             #page.get_element_by_css_selector('')
