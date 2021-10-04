@@ -20,8 +20,7 @@ def app_specific_action(locust):
      if 'sc' not in content_get_sc:
          logger.error(f"'sc' was not found in {content_get_sc}")
      assert 'sc' in content_get_sc
-     
-    
+               
      body = {
                  "accessKey": "f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1",
                  "address": "cloud.tenable.com",
@@ -42,12 +41,12 @@ def app_specific_action(locust):
                  "syncSince": "08/18/2021 15:01",
                  "verifySSL": "undefined"
             }
-      r_post = locust.client.post('/rest/tenable/1.0', body, catch_response=True)
-      content_post = r_post.content.decode('utf-8')
-      logging.error("content post" + content_post)
-      logging.info("content post" + content_post)
-      logger.locust_info("r post" + r_st)
-      logger.error("r post" + r_post)
+     r_post = locust.client.post('/rest/tenable/1.0', body, catch_response=True)
+     content_post = r_post.content.decode('utf-8')
+     logging.error("content post" + content_post)
+     logging.info("content post" + content_post)
+     logger.locust_info("r post" + r_st)
+     logger.error("r post" + r_post)
     
 #     token_pattern_example = '"token":"(.+?)"'
 #     id_pattern_example = '"id":"(.+?)"'
