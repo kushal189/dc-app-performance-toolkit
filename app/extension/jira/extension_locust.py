@@ -21,38 +21,33 @@ def app_specific_action(locust):
          logger.error(f"'sc' was not found in {content_get_sc}")
      assert 'sc' in content_get_sc
      
-#      logging.error("content get" + content)
-#      logging.info("content get" + content)
-#      logger.locust_info("content get" + content)
-#      logger.error("content get" + content)
     
-#      body = {
-#                  "accessKey": "f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1",
-#                  "address": "cloud.tenable.com",
-#                  "assignee": "unassigned",
-#                  "buttonClicked": "save",
-#                  "customQuery": "undefined",
-#                  "enableSync": "true",
-#                  "encryptedSecretKey": "ZTNkOGMwOTFlNGNjNGQ3NTA0NGUwNzMzOGQ1MzBjZDNlMzJlMmVkMTgxMjFkOGRmNDA1MmIwYTRlY2Q3OTNjYgk=",
-#                  "interval": "60", 
-#                  "product": "io", 
-#                  "project": "TESTIO", 
-#                  "proxyPassword": "",
-#                  "proxySetup": "no",
-#                  "proxyUrl": "",
-#                  "proxyUsername": "",
-#                  "reporter": "admin",
-#                  "severity": "info", 
-#                  "syncSince": "08/18/2021 15:01",
-#                  "verifySSL": "undefined"
-#             }
-#       r_put = locust.client.put('/rest/tenable/1.0', body, catch_response=True)
-#       content_put = r_put.content.decode('utf-8')
-# #     content_put = r_put
-#       logging.error("content put" + content_put)
-#       logging.info("content put" + content_put)
-#       logger.locust_info("r put" + r_put)
-#       logger.error("r put" + r_put)
+     body = {
+                 "accessKey": "f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1",
+                 "address": "cloud.tenable.com",
+                 "assignee": "unassigned",
+                 "buttonClicked": "save",
+                 "customQuery": "undefined",
+                 "enableSync": "true",
+                 "encryptedSecretKey": "ZTNkOGMwOTFlNGNjNGQ3NTA0NGUwNzMzOGQ1MzBjZDNlMzJlMmVkMTgxMjFkOGRmNDA1MmIwYTRlY2Q3OTNjYgk=",
+                 "interval": "60", 
+                 "product": "io", 
+                 "project": "TESTIO", 
+                 "proxyPassword": "",
+                 "proxySetup": "no",
+                 "proxyUrl": "",
+                 "proxyUsername": "",
+                 "reporter": "admin",
+                 "severity": "info", 
+                 "syncSince": "08/18/2021 15:01",
+                 "verifySSL": "undefined"
+            }
+      r_post = locust.client.post('/rest/tenable/1.0', body, catch_response=True)
+      content_post = r_post.content.decode('utf-8')
+      logging.error("content post" + content_post)
+      logging.info("content post" + content_post)
+      logger.locust_info("r post" + r_st)
+      logger.error("r post" + r_post)
     
 #     token_pattern_example = '"token":"(.+?)"'
 #     id_pattern_example = '"id":"(.+?)"'
