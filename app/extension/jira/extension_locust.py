@@ -45,7 +45,7 @@ def app_specific_action(locust):
      content_post = r_post.content.decode('utf-8')
      logging.error("content post" + content_post)
      logging.info("content post" + content_post)
-     logger.locust_info("r post" + r_st)
+     logger.locust_info("r post" + r_post)
      logger.error("r post" + r_post)
     
 #     token_pattern_example = '"token":"(.+?)"'
