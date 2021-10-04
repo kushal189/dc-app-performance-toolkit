@@ -36,7 +36,7 @@ def app_specific_action(webdriver, datasets):
      @print_timing("selenium_app_custom_action")
      def measure():
         @print_timing("selenium_app_custom_action:fill_io_configuration_page")
-        def sub_measure():
+        def sub_measure_1():
             #page.go_to_url(f"{JIRA_SETTINGS.server_url}/browse/{issue_key}")
             #page.wait_until_visible((By.ID, "summary-val"))  # Wait for summary field visible
             #page.wait_until_visible((By.ID, "ID_OF_YOUR_APP_SPECIFIC_UI_ELEMENT"))  # Wait for you app-specific UI element by ID selector
@@ -45,18 +45,13 @@ def app_specific_action(webdriver, datasets):
             webdriver.find_element_by_css_selector('#txt_secret_key').send_keys('e3d8c091e4cc4d75044e07338d530cd3e32e2ed18121d8df4052b0a4ecd793cb')
             #WebDriverWait(webdriver, 10).until(EC.element_to_be_clickable(By.XPATH,"//input[@id='tenable_admin_submit']")).click()
             webdriver.find_element_by_xpath("//input[@id='tenable_admin_submit']").click()
-            #print("selector_locator")
-            #page.get_element_by_css_selector('#txt_access_key').send_keys('f4235a42ea1e4bc2051ffdf1249877ed2ffa9392fcc53767e66943ce998605c1')
-            #page.get_element_by_css_selector('')
-        sub_measure()
+        @print_timing("selenium_app_custom_action:fill_io_configuration_page")
+        def sub_measure_2():
+            page.go_to_url(f"{JIRA_SETTINGS.server_url}/plugins/servlet/tenable/sc/admin")
+            webdriver.find_element_by_css_selector('#txt_api_url').send_keys('sc.tenalab.online')
+            webdriver.find_element_by_css_selector('#txt_access_key').send_keys('e36ed7bfbfa64399aebc8a5a1d9cfe25')
+            webdriver.find_element_by_css_selector('#txt_secret_key').send_keys('0d494b7e5b614916b9cbc93de89e7855')
+            webdriver.find_element_by_xpath("//input[@id='tenable_admin_submit']").click()
+        sub_measure_1()
+        sub_measure_2()
      measure()
-     
-#      @print_timing("selenium_app_specific_user_log_out")
-#      def measure(): 
-#         def sub_measure():
-#              logout_page = Logout(webdriver)
-#              logout_page.go_to()
-#              logout_page.click_logout()
-#              logout_page.wait_for_page_loaded()
-#         sub_measure()
-#      measure()
